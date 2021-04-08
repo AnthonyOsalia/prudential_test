@@ -22,7 +22,7 @@ class SplashScreenState extends State<SplashScreen> {
 
   @override
   Widget build(BuildContext context) {
-    new Future.delayed(const Duration(seconds: 1), () async {
+    new Future.delayed(const Duration(seconds: 3), () async {
       //check if is logged in
       Get.offAllNamed(Routes.posts);
     });

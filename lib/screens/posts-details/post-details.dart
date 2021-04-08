@@ -73,7 +73,7 @@ class PostDetailsScreen extends GetWidget<PostDetailsController> {
                       children: [
                         Obx(() => controller.isLoading.value
                             ? Container(
-                                color: Colors.white,
+                                color: Cc.white,
                                 height: MediaQuery.of(context).size.height * 4,
                                 child: Center(
                                   child: CircularProgressIndicator(
@@ -121,6 +121,20 @@ class PostDetailsScreen extends GetWidget<PostDetailsController> {
         child: Container(
           child: Column(
             children: [
+              Align(
+                alignment: Alignment.topLeft,
+                child: Text(
+                  "Leave a comment below",
+                  style: Ts.robotoMedium.copyWith(
+                    color: Cc.gray_prudential,
+                    fontSize: 14,
+                  ),
+                  textAlign: TextAlign.left,
+                ),
+              ),
+              SizedBox(
+                height: 5,
+              ),
               FormBuilderTextField(
                   autocorrect: true,
                   autofocus: false,
@@ -170,7 +184,7 @@ class PostDetailsScreen extends GetWidget<PostDetailsController> {
                       ),
                       Text(
                         "Comment",
-                        style: TextStyle(
+                        style: Ts.robotoMedium.copyWith(
                           color: Cc.red_prudential,
                           fontSize: 14,
                         ),
