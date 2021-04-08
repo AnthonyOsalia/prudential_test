@@ -37,11 +37,11 @@ class SplashScreenState extends State<SplashScreen> {
             children: [
               CircleAvatar(
                 backgroundColor: Cc.red_prudential,
-                radius: 40,
+                radius: 60,
                 child: Image.asset(
                   "images/icon.png",
-                  width: 70,
-                  height: 70,
+                  width: 100,
+                  height: 100,
                 ),
               ),
               SizedBox(

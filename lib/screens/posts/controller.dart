@@ -4,6 +4,7 @@ import 'package:prudential_test/api_service/Urls.dart';
 import 'package:prudential_test/api_service/api_service.dart';
 import 'package:prudential_test/commons/models/post.dart';
 import 'package:prudential_test/utils/util.dart';
+import 'package:pull_to_refresh/pull_to_refresh.dart';
 
 class PostsController extends GetxController {
   var current_time = DateTime.now().hour.obs;
@@ -26,6 +27,9 @@ class PostsController extends GetxController {
 
     return '';
   }
+
+  RefreshController refreshController =
+      RefreshController(initialRefresh: false);
 
   RxList<Post> posts = RxList();
   var isLoading = false.obs;

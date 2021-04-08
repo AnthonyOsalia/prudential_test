@@ -5,6 +5,7 @@ import 'package:prudential_test/api_service/api_service.dart';
 import 'package:prudential_test/commons/models/comment.dart';
 import 'package:prudential_test/commons/models/post.dart';
 import 'package:prudential_test/utils/util.dart';
+import 'package:pull_to_refresh/pull_to_refresh.dart';
 
 class PostDetailsController extends GetxController {
   var current_time = DateTime.now().hour.obs;
@@ -33,6 +34,8 @@ class PostDetailsController extends GetxController {
 
   BuildContext context;
   Post post;
+  RefreshController refreshController =
+      RefreshController(initialRefresh: false);
 
   PostDetailsController({this.context, @required this.post});
 

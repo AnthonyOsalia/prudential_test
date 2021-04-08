@@ -9,6 +9,7 @@ import 'package:prudential_test/screens/posts-details/controller.dart';
 import 'package:prudential_test/screens/posts-details/post_item.dart';
 import 'package:prudential_test/utils/TextStyles.dart';
 import 'package:prudential_test/utils/colors.dart';
+import 'package:pull_to_refresh/pull_to_refresh.dart';
 
 import 'comment-item.dart';
 
@@ -72,8 +73,8 @@ class PostDetailsScreen extends GetWidget<PostDetailsController> {
                       children: [
                         Obx(() => controller.isLoading.value
                             ? Container(
-                                color: Cc.white,
-                                height: MediaQuery.of(context).size.height * 1,
+                                color: Colors.white,
+                                height: MediaQuery.of(context).size.height * 4,
                                 child: Center(
                                   child: CircularProgressIndicator(
                                     backgroundColor: Cc.red_prudential,

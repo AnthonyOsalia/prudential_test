@@ -93,11 +93,11 @@ class PostsScreen extends GetWidget<PostsController> {
                       children: [
                         Obx(() => controller.isLoading.value
                             ? Container(
-                                color: Cc.white,
-                                height: MediaQuery.of(context).size.height * 1,
+                                color: Colors.white,
+                                height: MediaQuery.of(context).size.height * .8,
                                 child: Center(
                                   child: CircularProgressIndicator(
-                                    backgroundColor: Colors.red,
+                                    backgroundColor: Cc.red_prudential,
                                   ),
                                 ),
                               )
