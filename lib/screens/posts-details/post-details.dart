@@ -16,9 +16,13 @@ class PostDetailsScreen extends GetWidget<PostDetailsController> {
   Post post;
 
   PostDetailsScreen({@required this.post}) : super() {
-    Get.lazyPut(() => PostDetailsController(post: post));
+    Get.lazyPut(() => PostDetailsController(post: post),
+        tag: post.id.toString());
   }
 
+  @override
+  // TODO: implement controller
+  get controller => Get.find<PostDetailsController>(tag: post.id.toString());
   @override
   Widget build(BuildContext context) {
     controller.context = context;
@@ -66,32 +70,30 @@ class PostDetailsScreen extends GetWidget<PostDetailsController> {
                     ),
                     child: Column(
                       children: [
-                        Obx(
-                          () => controller.isLoading.value
-                              ? Container(
-                                  color: Cc.white,
-                                  height:
-                                      MediaQuery.of(context).size.height * .4,
-                                  child: Center(
-                                    child: CircularProgressIndicator(
-                                      backgroundColor: Cc.red_prudential,
-                                    ),
+                        Obx(() => controller.isLoading.value
+                            ? Container(
+                                color: Cc.grey,
+                                height: MediaQuery.of(context).size.height * .4,
+                                child: Center(
+                                  child: CircularProgressIndicator(
+                                    backgroundColor: Cc.red_prudential,
                                   ),
-                                )
-                              : ListView.separated(
-                                  physics: NeverScrollableScrollPhysics(),
-                                  shrinkWrap: true,
-                                  itemCount: controller.comments.length,
-                                  separatorBuilder:
-                                      (BuildContext context, int index) =>
-                                          SizedBox(),
-                                  itemBuilder:
-                                      (BuildContext context, int index) {
-                                    return CommentItem(
-                                        comment: controller.comments
-                                            .elementAt(index));
-                                  },
                                 ),
+                              )
+                            : SizedBox()),
+                        Obx(
+                          () => ListView.separated(
+                            physics: NeverScrollableScrollPhysics(),
+                            shrinkWrap: true,
+                            itemCount: controller.comments.length,
+                            separatorBuilder:
+                                (BuildContext context, int index) => SizedBox(),
+                            itemBuilder: (BuildContext context, int index) {
+                              return CommentItem(
+                                  comment:
+                                      controller.comments.elementAt(index));
+                            },
+                          ),
                         ),
                         SizedBox(
                           height: 70,

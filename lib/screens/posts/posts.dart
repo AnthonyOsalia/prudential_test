@@ -91,32 +91,29 @@ class PostsScreen extends GetWidget<PostsController> {
                     ),
                     child: Column(
                       children: [
-                        Obx(
-                          () => controller.isLoading.value
-                              ? Container(
-                                  color: Cc.white,
-                                  height:
-                                      MediaQuery.of(context).size.height * .4,
-                                  child: Center(
-                                    child: CircularProgressIndicator(
-                                      backgroundColor: Cc.red_prudential,
-                                    ),
+                        Obx(() => controller.isLoading.value
+                            ? Container(
+                                color: Cc.grey,
+                                height: MediaQuery.of(context).size.height * .4,
+                                child: Center(
+                                  child: CircularProgressIndicator(
+                                    backgroundColor: Cc.red_prudential,
                                   ),
-                                )
-                              : ListView.separated(
-                                  physics: NeverScrollableScrollPhysics(),
-                                  shrinkWrap: true,
-                                  itemCount: controller.posts.length,
-                                  separatorBuilder:
-                                      (BuildContext context, int index) =>
-                                          SizedBox(),
-                                  itemBuilder:
-                                      (BuildContext context, int index) {
-                                    return PostItem(
-                                        post:
-                                            controller.posts.elementAt(index));
-                                  },
                                 ),
+                              )
+                            : SizedBox()),
+                        Obx(
+                          () => ListView.separated(
+                            physics: NeverScrollableScrollPhysics(),
+                            shrinkWrap: true,
+                            itemCount: controller.posts.length,
+                            separatorBuilder:
+                                (BuildContext context, int index) => SizedBox(),
+                            itemBuilder: (BuildContext context, int index) {
+                              return PostItem(
+                                  post: controller.posts.elementAt(index));
+                            },
+                          ),
                         ),
                         SizedBox(
                           height: 70,
