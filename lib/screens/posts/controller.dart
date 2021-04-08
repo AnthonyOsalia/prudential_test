@@ -48,8 +48,10 @@ class PostsController extends GetxController {
   }
 
   void getPost() {
+    isLoading.value = true;
     ApiService.get(Urls.posts).then((res) {
-      print(res);
+      // print(res);
+      isLoading.value = false;
       posts.value = postFromMap(res.body);
     }, onError: (e) {
       isLoading.value = false;

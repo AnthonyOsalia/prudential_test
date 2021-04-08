@@ -50,8 +50,10 @@ class PostDetailsController extends GetxController {
   }
 
   void getComments() {
+    isLoading.value = true;
     ApiService.get(Urls.posts + "${post.id.toString()}/comments/").then((res) {
-      print(res);
+      // print(res);
+      isLoading.value = false;
       comments.value = commentFromMap(res.body);
     }, onError: (e) {
       isLoading.value = false;
