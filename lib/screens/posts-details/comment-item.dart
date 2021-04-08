@@ -44,16 +44,33 @@ class CommentItem extends StatelessWidget {
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Text(
-                          "${comment.name}",
-                          style: Ts.robotoMedium.copyWith(
-                            color: Cc.black,
-                            fontSize: 14,
-                            fontWeight: FontWeight.w600,
+                        RichText(
+                          textAlign: TextAlign.left,
+                          text: TextSpan(
+                            text: '${comment.name}',
+                            style: Ts.robotoSmall.copyWith(
+                                color: Cc.black,
+                                fontSize: 14,
+                                fontStyle: FontStyle.normal,
+                                fontWeight: FontWeight.w500),
+                            children: <TextSpan>[
+                              TextSpan(
+                                text: ' ${comment.email}',
+                                recognizer: new TapGestureRecognizer()
+                                  ..onTap = () {
+                                    // Get.offAllNamed(Routes.register);
+                                  },
+                                style: Ts.robotoSmall.copyWith(
+                                    color: Cc.gray_prudential,
+                                    fontSize: 14,
+                                    fontStyle: FontStyle.italic,
+                                    fontWeight: FontWeight.w500),
+                              ),
+                            ],
                           ),
                         ),
                         SizedBox(
-                          height: 2,
+                          height: 8,
                         ),
                         Text(
                           "${comment.body}",
@@ -83,7 +100,7 @@ class CommentItem extends StatelessWidget {
                     child: RichText(
                       textAlign: TextAlign.center,
                       text: TextSpan(
-                        text: 'Posted: ',
+                        text: 'Commented: ',
                         style: Ts.robotoSmall.copyWith(
                           color: Cc.black,
                           fontSize: 8,
@@ -91,7 +108,7 @@ class CommentItem extends StatelessWidget {
                         ),
                         children: <TextSpan>[
                           TextSpan(
-                            text: '2 minutes ago',
+                            text: '3 minutes ago',
                             recognizer: new TapGestureRecognizer()
                               ..onTap = () {
                                 // Get.offAllNamed(Routes.register);

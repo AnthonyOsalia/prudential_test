@@ -1,6 +1,5 @@
 import 'dart:convert';
 import 'dart:convert' as convert;
-import 'package:get_storage/get_storage.dart';
 import 'package:http/http.dart' as http;
 import 'package:prudential_test/utils/prefs.dart';
 
@@ -24,7 +23,6 @@ class ApiService {
   }
 
   Future<http.Response> delete(var url, {bool with_auth = true}) async {
-    var box = GetStorage();
     var headers = {
       'Content-Type': 'application/json',
       'Accept': 'application/json',
@@ -42,7 +40,6 @@ class ApiService {
 
   static Future<http.Response> post(var url, var body,
       {bool with_auth = true}) async {
-    var box = GetStorage();
     var headers = {
       'Content-Type': 'application/json',
       'Accept': 'application/json',
@@ -61,7 +58,6 @@ class ApiService {
 
   static Future<http.Response> put(var url, var body,
       {bool with_auth = true}) async {
-    var box = GetStorage();
     var headers = {
       'Content-Type': 'application/json',
       'Accept': 'application/json',
@@ -80,7 +76,6 @@ class ApiService {
 
   static Future<http.Response> patch(var url, var body,
       {bool with_auth = true}) async {
-    var box = GetStorage();
     var headers = {
       'Content-Type': 'application/json',
       'Accept': 'application/json',

@@ -54,7 +54,7 @@ class PostItem extends StatelessWidget {
                             style: Ts.robotoMedium.copyWith(
                               color: Cc.black,
                               fontSize: 17,
-                              fontWeight: FontWeight.w600,
+                              fontWeight: FontWeight.w700,
                             ),
                           ),
                           SizedBox(
@@ -96,7 +96,7 @@ class PostItem extends StatelessWidget {
                           ),
                           children: <TextSpan>[
                             TextSpan(
-                              text: '2 minutes ago',
+                              text: '1 Hr ago',
                               recognizer: new TapGestureRecognizer()
                                 ..onTap = () {
                                   // Get.offAllNamed(Routes.register);
